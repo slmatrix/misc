@@ -7,10 +7,10 @@ set term=screen-256color
 set number
 set expandtab
 set autoindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set colorcolumn=81
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set colorcolumn=121
 
 set hidden
 set ignorecase
@@ -45,7 +45,7 @@ autocmd BufNewFile, BufRead *.cc setfiletype cpp
       \ set tabstop=4       |
       \ set softtabstop=4   |
       \ set shiftwidth=4    |
-      \ set textwidth=80    |
+      \ set textwidth=121   |
       \ set expandtab       |
       \ set autoindent      |
       \ set fileformat=unix |
