@@ -1,0 +1,18 @@
+[submodule "vim-airline"]
+	path = vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "nerdtree"]
+	path = nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "fugitive"]
+	path = fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-solarized8"]
+	path = vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
