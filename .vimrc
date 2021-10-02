@@ -2,10 +2,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-<<<<<<< HEAD
-let g:airline_powerline_fonts = 1
-=======
->>>>>>> vanity/master
 set term=screen-256color
 
 set number
@@ -14,23 +10,14 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-<<<<<<< HEAD
-set colorcolumn=81
- 
-=======
 set colorcolumn=121
 
->>>>>>> vanity/master
 set hidden
 set ignorecase
 set smartcase
 
 set backspace=indent,eol,start
 set nocompatible
-set clipboard=unamed
-<<<<<<< HEAD
-colorscheme solarized
-=======
 
 set splitright                              "when using split, open to the right
 
