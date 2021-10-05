@@ -1,0 +1,8 @@
+pip3 install cython
+pip3 install numpy
+pip3 install torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+sudo apt install libopenblas-dev
+sudo apt install libjpeg8-dev
+pip3 install Pillow
+pip3 install torchvision
+pip3 install torchsummary
