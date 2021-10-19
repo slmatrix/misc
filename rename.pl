@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #usage msg
-die "Please provide the file extensions to rename! $!\n" unless $0 > 1;
+die "Please provide the file extensions to rename! $!\n" unless ($#ARGV+1) > 1;
 
 
 #cmdline parameters: all stored in '@ARGV' with $ARGV[0] = 1st arg, $ARGV[1] = 2nd arg, ...
