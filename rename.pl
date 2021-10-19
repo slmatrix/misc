@@ -1,36 +1,59 @@
 #!/usr/bin/perl
 
-#usage msg
-die "Please provide the file extensions to rename! $!\n" unless ($#ARGV+1) > 1;
+
+#instructions for graders using BB
+#(1)  click 'grade center'
+#(2)  click 'full grade center'
+#(3)  hover over the assignment column name, then click drop-down menu arrow when it appears
+#(4)  click 'assignment file download'
+#(5)  click 'show all' in the bottom right
+#(6)  click the 1st checkbox on the 'name' column to select all submissions
+#(7)  click submit
+#(8)  click the 'download assignments now' link
+#(9)  navigate to the download, unzip the file: unzip gradebook*
+#(10) run the script below to rename the student submissions into managable names
+#(--) tip: enforce a standard submission format -- e.g. all files submitted inside a zip file OR ELSE ..
 
 
 #cmdline parameters: all stored in '@ARGV' with $ARGV[0] = 1st arg, $ARGV[1] = 2nd arg, ...
-@files = `ls *.$ARGV[0]`;  #read all filenames ending with the extension given as the 1st cmdline parameter 
-#print @files;             #check that the correct files were read in
-chop @files;               #remove the newline character from the filenames (it is appended by the ls cmd)
+$extension = 'zip';          #IMPORTANT: change to rename other types of files
+@files = `ls *.$extension`;  #read in all files ending in $extension
+#print @files;               #check that the correct files were read in
+chop @files;                 #remove the newline character from the filenames (default appended by `ls`)
 
 
-$count = 0;
-@new_name;
-foreach $file (@files)
+sub change_name
 {
-  if ($file =~ m|_([a-z]{3}[0-9]{3})_|)     #extract each student's abc123 from the filename  
+  foreach $file (@files)
   {
-    $new_name[$count] = "$1.$ARGV[0]";      #create a new file name, 'abc123.EXTENSION'
-    $count +=1;
+    if ($file =~ m|_([a-z]{3}[0-9]{3})_|)     #extract each student's abc123 from $file (and default stored in $1)
+    {
+      $abc123 = $1;
+      $param = $_[0];
+      if ($param =~ /^print$/)
+      {
+        print "mv $file $abc123.$extension\n";
+      }
+      elsif ($param =~ /^rename$/)
+      {
+        `mv "$file" "$abc123.$extension"`;  #rename the file to 'abc123.extension'
+      }
+    }
   }
 }
 
 
-$count = 0;
-foreach $file (@files)
+print "CAUTION: do you really want to run these commands?>>>";
+change_name('print');
+print "<<<CAUTION: verify the above statements as correct before proceeding.";
+
+print "\n\nproceed with renaming [yes/no]: ";
+if (<> =~ /^yes$/)
 {
-  #CAUTION: check print output before uncommenting the renaming line!
-  #print "mv '$file' $new_name[$count]"; 
-  `mv "$file" $new_name[$count]`;  #rename all files to be be 'abc123.EXTENSION'
-  $count +=1;
+  change_name('rename');
 }
-
-
-#remove the redundant submission txt files
-`rm *.txt`;
+else
+{
+  print "\nexiting process without executing file renames.\n";
+  exit 0;
+}
