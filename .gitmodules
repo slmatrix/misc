@@ -10,3 +10,6 @@
 [submodule "vim-solarized8"]
 	path = vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/plugin/opt/solarized8"]
+	path = .vim/pack/plugin/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
