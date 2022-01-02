@@ -28,7 +28,7 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set colorcolumn=121
+set colorcolumn=81
 
 
 set ignorecase  "text search is case insensitive
@@ -59,10 +59,10 @@ autocmd BufNewFile, BufRead *.cc setfiletype cpp
 "follow the PEP8ish indentation protocol
 :au BufNewFile,BufRead *.py
       \ set expandtab       |
-      \ set tabstop=2       |
-      \ set softtabstop=2   |
+      \ set tabstop=4       |
+      \ set softtabstop=4   |
       \ set shiftwidth=4    |
-      \ set textwidth=121   |
+      \ set textwidth=81   |
       \ set expandtab       |
       \ set autoindent      |
       \ set fileformat=unix |
